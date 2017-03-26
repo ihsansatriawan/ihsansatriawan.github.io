@@ -12,6 +12,7 @@ My name is Ihsan Satriawan, Software Engineer and Data lover from Indonesia.
 * Computer programming
 * Data Analysis
 * Reading (General knowledge): Science, History.. etc.
+* Foods
 
 #### Contact
 * Email:  ihsan.satriawan.20@gmail.com
