@@ -4,6 +4,7 @@ title: "Hijup (Engineering) Culture"
 tag:
 - engineering
 - culture
+category: blog
 published: True
 author: ihsan
 
