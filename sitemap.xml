@@ -3,12 +3,44 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/</loc>
+    <loc>/blog/</loc>
+    <lastmod>2019-06-08T06:21:32+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2019-06-08T06:21:32+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/2019/06/perbedaan-defer-dan-async-dalam-load-javascript/</loc>
+    <lastmod>2019-06-08T06:21:32+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/2019/06/how-tokopedia-lite-use-graphql/</loc>
+    <lastmod>2019-06-08T06:16:38+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/2019/06/hijup-engineering-culture/</loc>
+    <lastmod>2019-06-08T06:13:45+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/2019/06/cara-mudah-deploy-create-react-app/</loc>
+    <lastmod>2019-06-08T06:11:54+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/2019/06/menggunakan-fb-sdk-pada-react-native/</loc>
+    <lastmod>2019-06-08T06:09:02+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
     <priority>0</priority>
   </url>
   

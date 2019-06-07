@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Ihsan Satriawan ">
+<meta name="description"
+    content="https://www.bram.us/2017/06/27/full-stack-react-graphql-tutorial/
+At Tokopedia, we implement a lot of smart technology to achieve customer satisfaction. GraphQL is one of the technologies we implemented to that end.
+GraphQL Before we explain about how we implemented it in Tokopedia, we’ll explain what GraphQL is. We have the following summary from GraphQL official website.
+https://graphql.org/
+ GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/blog/2019/06/how-tokopedia-lite-use-graphql/" />
+
+
+<title>
+    
+    How Tokopedia-Lite use GraphQL :: Ihsan Satriawan 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.d90905eb29b71569a516566cd9662312bee9ab021c760de6949cdc92d6688be9.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627">
+<meta itemprop="name" content="How Tokopedia-Lite use GraphQL">
+<meta itemprop="description" content="https://www.bram.us/2017/06/27/full-stack-react-graphql-tutorial/
+At Tokopedia, we implement a lot of smart technology to achieve customer satisfaction. GraphQL is one of the technologies we implemented to that end.
+GraphQL Before we explain about how we implemented it in Tokopedia, we’ll explain what GraphQL is. We have the following summary from GraphQL official website.
+https://graphql.org/
+ GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.">
+
+
+<meta itemprop="datePublished" content="2019-06-08T06:16:38&#43;07:00" />
+<meta itemprop="dateModified" content="2019-06-08T06:16:38&#43;07:00" />
+<meta itemprop="wordCount" content="534">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="How Tokopedia-Lite use GraphQL"/>
+<meta name="twitter:description" content="https://www.bram.us/2017/06/27/full-stack-react-graphql-tutorial/
+At Tokopedia, we implement a lot of smart technology to achieve customer satisfaction. GraphQL is one of the technologies we implemented to that end.
+GraphQL Before we explain about how we implemented it in Tokopedia, we’ll explain what GraphQL is. We have the following summary from GraphQL official website.
+https://graphql.org/
+ GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data."/>
+
+
+
+
+<meta property="article:published_time" content="2019-06-08 06:16:38 &#43;0700 WIB" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">Ihsan</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/blog">Blog</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="/blog/2019/06/how-tokopedia-lite-use-graphql/">How Tokopedia-Lite use GraphQL</a></h2>
+
+            
+
+            <div class="post-content">
+                
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*RXwEHBw0ho2QdvJDPXYfrQ.png" alt="" />
+<span class="figcaption_hack"><a href="https://www.bram.us/2017/06/27/full-stack-react-graphql-tutorial/">https://www.bram.us/2017/06/27/full-stack-react-graphql-tutorial/</a></span></p>
+
+<p>At Tokopedia, we implement a lot of smart technology to achieve customer
+satisfaction. GraphQL is one of the technologies we implemented to that end.</p>
+
+<h3 id="graphql"><strong>GraphQL</strong></h3>
+
+<p>Before we explain about how we implemented it in Tokopedia, we’ll explain what
+GraphQL is. We have the following summary from GraphQL official website.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/2400/1*LLRdzY68HCRen0CcXEUAAQ.png" alt="" />
+<span class="figcaption_hack"><a href="https://graphql.org/">https://graphql.org/</a></span></p>
+
+<blockquote>
+<p>GraphQL is a query language for APIs and a runtime for fulfilling those queries
+with your existing data. GraphQL provides a complete and understandable
+description of the data in your API, gives clients the power to ask for exactly
+what they need and nothing more, makes it easier to evolve APIs over time, and
+enables powerful developer tools.</p>
+</blockquote>
+
+<p>Basically, GraphQL is a new paradigm provided by Facebook for fetching data from
+server to client. GraphQL can combine with existing REST API. GraphQL exists not
+to replace REST, but to solve problems that can’t be solved by REST.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*EvOapsUz4cmXMIWgTHsTyQ.png" alt="" />
+<span class="figcaption_hack">GraphQL combined with Existing API</span></p>
+
+<hr />
+
+<h3 id="tokopedia-lite"><strong>Tokopedia-Lite</strong></h3>
+
+<p>Tokopedia-Lite is light version from tokopedia mobile site. In the beginning,
+tokopedia mobile site was built with Perl. To achieve customer satisfaction, we
+decided to revamp our mobile site, and rebuild it with ReactJS. Following is the
+Technology stack used by Tokopedia-Lite:</p>
+
+<ol>
+<li>ReactJS</li>
+<li>Webpack</li>
+<li>GraphQL (We use <a href="https://www.apollographql.com/">Apollo</a> for client and server)</li>
+<li>EmotionJS</li>
+<li>Babel</li>
+<li>etc</li>
+</ol>
+
+<p>*<strong>NB</strong>: Another article will explain more deep about Tokopedia-Lite</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*yvxAy82JOYbyNGefj1v01Q.png" alt="" />
+<span class="figcaption_hack">Tokopedia-Lite Journey</span></p>
+
+<hr />
+
+<h3 id="graphql-tokopedia-lite"><strong>GraphQL — Tokopedia-Lite</strong></h3>
+
+<p>At Tokopedia, we have multiple Tribes each having their own focus area. For
+example, Tribe Discovery focuses on helping the user easily find products in
+marketplace. Tribe Digital focuses on selling digital products like recharge
+(pulsa), train ticket, event ticket, etc. Therefore, in one page, we may need to
+call multiple different APIs from different teams.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/0*p9hMktoHzz5FGbwp." alt="" />
+<span class="figcaption_hack">Tokopedia-Lite &amp; GraphQL Architecture</span></p>
+
+<hr />
+
+<h3 id="home-case"><strong>Home Case</strong></h3>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*xqULPbGkGEALfrkhJc5Mpg.png" alt="" />
+<span class="figcaption_hack">Home Tokopedia-Lite</span></p>
+
+<p>If we look the image, at Home page Tokopedia-Lite, we need to make calls to 5
+different API at the very least. If Tokopedia-Lite hadn’t used GraphQL, then
+there would be 5 round trip network between client and server and that would
+make our home page slow, and make the user wait too long to get our home page
+rendered completely. However, because we use GraphQL in Tokopedia-Lite, our
+client only needs one API call to server and the GraphQL server does the rest
+(do 5x API call to 5 different API). That makes Tokopedia Lite faster and more
+efficient.</p>
+
+<hr />
+
+<h3 id="cache">Cache</h3>
+
+<p>In some cases, not all queries need to call other APIs to get data. In
+Tokopedia, we have API to provide data of product categories in our marketplace.
+Because this data is not frequently updated, so we decided to cache it in our
+GraphQL server.</p>
+
+<p><span class="figcaption_hack">Query Category</span></p>
+
+<p>Every query for <em>mainCategoriesQueries</em> will resolve with checking our cache
+first. If cached data exists, GraphQL will immediately return the value from
+cache. The question is, how do we do that? Actually we only use
+<a href="https://redis.io/">redis</a> as our cache server</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*i1d88Q8NNrRv6kjf7Ssw4g.png" alt="" />
+<span class="figcaption_hack">Redis</span></p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*N51cfUvAoePGy_moJoZbhQ.jpeg" alt="" />
+<span class="figcaption_hack">Cache Mechanism</span></p>
+
+<hr />
+
+<p>We have many amazing and untold stories inside Tokopedia. We are always willing
+to try different methods to satisfy our customers. Have any suggestion for us to
+take it to the next level? Feel free to write in comments or you can <a href="http://tokopedia.com/careers">join
+us</a>! Please check out our <a href="http://tokopedia.com/careers">careers
+page</a> for more information.</p>
+
+<ul>
+<li><a href="https://medium.com/tag/react?source=post">React</a></li>
+<li><a href="https://medium.com/tag/graphql?source=post">GraphQL</a></li>
+<li><a href="https://medium.com/tag/tokopedia?source=post">Tokopedia</a></li>
+</ul>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="/">Ihsan Satriawan</a></span>
+            
+            <span></span>
+            <span> <a href="/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.9e52e68b082cf2a30a7fead88260edb8818fbd7f7831e39674917d4539ec75df41ba88eaddfbd916594ab4fb2a31913b46cf2d6094cf80381edb8c632512a8ca.js" integrity="sha512-nlLmiwgs8qMKf&#43;rYgmDtuIGPvX94MeOWdJF9RTnsdd9Buojq3fvZFllKtPsqMZE7Rs8tYJTPgDge24xjJRKoyg=="></script>
+
+
+
+    </body>
+</html>
